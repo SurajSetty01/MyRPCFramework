@@ -9,15 +9,13 @@ using namespace Poco::JSON;
 
 int main() {
     try {
-        // Connect to the server (localhost:9999)
         SocketAddress serverAddr("127.0.0.1:9999");
         StreamSocket socket(serverAddr);
 
-        // Create a JSON request: add(4, 6)
+        //JSON request: add(4, 6)
         std::string request = Message::createRequest("add", {4, 6}, 1);
-        request += "\n";  // newline for server to detect end
-
-        // Send it
+        request += "\n";  
+        // Send the request
         socket.sendBytes(request.data(), (int)request.size());
 
         // Receive the response
