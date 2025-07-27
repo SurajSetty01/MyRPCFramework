@@ -18,7 +18,7 @@ std::string Message::createRequest(const std::string& method, const std::vector<
     obj->set("id", id);
 
     std::ostringstream oss;
-    obj->stringify(oss, 0);  // 0 = no pretty formatting
+    obj->stringify(oss, 0);  
     return oss.str();
 }
 
