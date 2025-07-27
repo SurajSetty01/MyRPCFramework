@@ -2,11 +2,11 @@
 #include <iostream>
 
 int main() {
-    // Create a request
+    // Request
     std::string req = Message::createRequest("add", {3, 5}, 1);
     std::cout << "Request JSON:\n" << req << "\n\n";
 
-    // Parse it
+    // Parse the request
     auto parsedReq = Message::parse(req);
     std::cout << "Parsed method: " << parsedReq->getValue<std::string>("method") << "\n";
     
@@ -16,11 +16,11 @@ int main() {
         std::cout << params->getElement<int>(i) << " ";
     std::cout << "\n\n";
 
-    // Create a response
+    // Response
     std::string res = Message::createResponse(8, 1);
     std::cout << "Response JSON:\n" << res << "\n";
 
-    // Create an error
+    // Error
     std::string err = Message::createError("Invalid method", 1);
     std::cout << "Error JSON:\n" << err << "\n";
 
